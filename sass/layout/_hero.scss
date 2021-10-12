@@ -1,0 +1,95 @@
+// Hero Section Styles
+
+.hero .container {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+// Film List Styles
+
+.films__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 20px;
+    row-gap: 30px;
+}
+
+.film__item {
+    width: calc((100% - 80px) / 5);
+    padding: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.film__title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: teal;
+}
+
+.film__img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.more__btn,
+.bookmark__btn {
+    padding: 3px 18px;
+    font-weight: 500;
+    font-size: 12px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+.bookmark__btn {
+    float: right;
+
+    &:disabled {
+        background-color: rgb(71, 182, 71);
+        color: #fff;
+        border-color: rgb(71, 182, 71);
+        opacity: .6;
+        cursor: not-allowed;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .film__item {
+        width: calc((100% - 60px) / 4);
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .film__item {
+        width: calc((100% - 40px) / 3);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .film__item {
+        width: calc((100% - 20px) / 2);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .film__item {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .film__img {
+        height: 300px;
+    }
+}

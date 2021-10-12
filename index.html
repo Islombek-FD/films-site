@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fa/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- ========== Header ========== -->
+    <header class="header">
+        
+        <div class="container">
+            
+            <div class="header-top">
+                
+                <a class="header__logo" href="./index.html">
+                    <img src="./img/logo.png" alt="Logo" width="220" height="27">
+                </a>
+
+                <label class="hamburger" for="hamburger-checkbox">
+
+                    <ul class="hamburger__menu">
+                        <li class="hamburger__icon"></li>
+                        <li class="hamburger__icon"></li>
+                        <li class="hamburger__icon"></li>
+                    </ul>
+                    
+                </label>
+
+                <input class="toggle" type="checkbox" id="hamburger-checkbox">
+
+                <nav class="nav">
+
+                    <ul class="nav__list">
+
+                        <li class="nav__item">
+                            <a class="nav__link active" href="#">Home</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">Shop</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">Educational</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">Press</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">Social</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a class="nav__link" href="#">About</a>
+                        </li>
+                    </ul>
+
+                </nav>
+
+            </div>
+            
+            <div class="header-bottom">
+                
+                <button class="bookmark__open-btn" type="button">Bookmarked's</button>
+                
+                <div class="form__open-menu">
+                    <span class="form__open-info">search menu</span>
+                    <span class="form__open-btn">
+                        <i class="form__open-icon far fa-arrow-alt-circle-down fa-2x"></i>
+                    </span>
+                </div>
+
+                <form class="films__form">
+                
+                    <select class="genres__select">
+                        <option value="All">All</option>
+                    </select>
+                    
+                    <select class="sort__select">
+                        <option value="0">A-Z</option>
+                        <option value="1">Z-A</option>
+                        <option value="2">New-Old</option>
+                        <option value="3">Old-New</option>
+                    </select>
+                    
+                    <input class="regexp__input" type="text" placeholder="Search by video name ...">
+                    
+                    <button class="search__btn">Search</button>
+
+                </form>
+                
+            </div>
+            
+        </div>
+        
+    </header>
+    <!-- ========== / Header ========== -->
+    
+    <!-- ========== Main ========== -->
+    <main class="main">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="container">
+                
+                <h2 class="visually-hidden">Films</h2>
+
+                <div class="hero__content">
+
+                    <div class="bookmark">
+                        <div class="bookmark__header">
+                            <h3 class="bookmark__title">
+                                Selected films
+                            </h3>
+                            <button class="bookmark__close-btn" type="button"> + </button>
+                        </div>
+                        <ul class="bookmark__list"></ul>
+                    </div>
+                    
+                    <div class="films">
+                        <ul class="films__list"></ul>
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </section>
+        <!--- / Hero Section -->
+        
+    </main>
+    <!-- ========== / Main ========== -->
+
+
+    <!-- ========== Modal ========== -->
+    <div class="modal">
+
+        <div class="modal__inner">
+
+            <div class="modal__header">
+                <h3 class="modal__heading">About the film</h3>
+                <button class="modal__close-btn"> + </button>
+            </div>
+
+            <div class="modal__info">
+                <h4 class="modal__film-title"></h4>
+                <img class="modal__film-img" src="" alt="Film image" width="100%" height="200">
+                <p class="modal__film-description"></p>
+                <p class="modal__film-genres-title"></p>
+                <ul class="modal__film-genres-list"></ul>
+                <time class="modal__film-time"></time>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ========== / Modal ========== -->
+
+    <!-- JavaScript links -->
+    <script src="./js/films.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

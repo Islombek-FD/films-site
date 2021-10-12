@@ -1,0 +1,85 @@
+.bookmark {
+    position: fixed;
+    top: 108px;
+    left: 0;
+    z-index: 100;
+    width: 350px;
+    height: calc(100vh - 108px);
+    padding: 15px;
+    padding-top: 25px;
+    background-color: rgba($color: #000000, $alpha: .9);
+    overflow: auto;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all .3s ease;
+
+    &.bookmark--open {
+        transform: scaleX(1);
+    }
+}
+
+.bookmark__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fff;
+}
+
+.bookmark__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    letter-spacing: .5px;
+    color: #008CBA;
+}
+
+.bookmark__close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    font-size: 32px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: rotate(45deg);
+    transition: all .5s ease;
+
+    &:hover {
+        background-color: rgba($color: #000000, $alpha: .7);
+        color: #fff;
+        border-color: rgba($color: #000000, $alpha: .7);
+        transform: rotate(405deg);
+    }
+}
+
+.bookmark__item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+}
+
+.bookmark__film-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.bookmark__delete-btn {
+    padding: 5px 20px;
+    font-size: 12px;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(199, 195, 195);
+        color: teal;
+    }
+}
