@@ -36,10 +36,11 @@
 
 .more__btn,
 .bookmark__btn {
-    width: 48%;
-    padding: 5px 18px;
+    width: 45%;
+    padding: 5px 10px;
     font-weight: 500;
     font-size: 12px;
+    text-align: center;
     background-color: #000;
     color: #fff;
     border: 2px solid #000;
@@ -91,6 +92,11 @@
     }
 
     .film__img {
-        height: 300px;
+        height: 350px;
+    }
+
+    .more__btn,
+    .bookmark__btn {
+        padding: 10px;
     }
 }
