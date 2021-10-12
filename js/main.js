@@ -32,7 +32,15 @@ const elModalFilmGenresTitle = document.querySelector('.modal__film-genres-title
 const elModalFilmGenresList = document.querySelector('.modal__film-genres-list');
 const elModalFilmTime = document.querySelector('.modal__film-time');
 
-const bookmarkFoundFilms = [];
+// Normalize Date Function
+function normalizeDate(format) {
+    const date = new Date(format);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, 0);
+    const day = String(date.getDate()).padStart(2, 0);
+
+    return `${day}.${month}.${year}`;
+}
 
 // Films sort 
 const sortFilms = {
@@ -60,6 +68,32 @@ const sortFilms = {
 
     3: (a, b) => a.release_date - b.release_date,
 }
+
+const bookmarkFoundFilms = [];
+
+// Listener form submit 
+elForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    const elSelectValue = elSelect.value;
+    const elSortSelectValue = elSortSelect.value;
+    const elRegExpInputValue = elRegExpInput.value.trim();
+
+    const regExp = new RegExp(elRegExpInputValue, 'gi');
+
+    let filteredFilms = [];
+    if (elSelectValue === 'All') {
+        filteredFilms = films.filter(movie => movie.title.match(regExp));
+    }
+    else {
+        filteredFilms = films.filter(film => film.genres.includes(elSelectValue)).filter(movie => movie.title.match(regExp));
+    }
+
+    filteredFilms.sort(sortFilms[elSortSelectValue]);
+    elRegExpInput.value = null;
+
+    renderFilms(filteredFilms, elFilmsList);
+})
 
 // Listener body click event
 let isOpenForm = false;
@@ -156,31 +190,6 @@ function bookmarkFilms(arr, node) {
     })
 }
 
-// Films click 
-elFilmsList.addEventListener('click', (evt) => {
-    if (evt.target.matches('.bookmark__btn')) {
-        const bookmarkId = evt.target.dataset.bookmarkId;
-        const foundFilm = films.find(film => film.id === bookmarkId);
-
-        if (bookmarkId) {
-            evt.target.disabled = true;
-            evt.target.textContent = 'Bookmarked';
-        }
-
-        if (!bookmarkFoundFilms.includes(foundFilm)) {
-            bookmarkFoundFilms.unshift(foundFilm);
-        }   
-        bookmarkFilms(bookmarkFoundFilms, elBookmarkList);
-    }
-    else if (evt.target.matches('.more__btn')) {
-        elModal.classList.add('modal--open');
-        const moreId = evt.target.dataset.moreId;
-        const foundFilm = films.find(film => film.id === moreId);
-
-        renderModalFilm(foundFilm);
-    }
-})
-
 // Render films to films list
 function renderFilms(arr, node) {
     node.innerHTML = null;
@@ -228,33 +237,33 @@ function renderFilms(arr, node) {
     })
 }
 
-// Render initial films
-renderFilms(films, elFilmsList);
+// Films click 
+elFilmsList.addEventListener('click', (evt) => {
+    if (evt.target.matches('.bookmark__btn')) {
+        const bookmarkId = evt.target.dataset.bookmarkId;
+        const foundFilm = films.find(film => film.id === bookmarkId);
 
-// Listener form submit 
-elForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
+        if (bookmarkId) {
+            evt.target.disabled = true;
+            evt.target.textContent = 'Bookmarked';
+        }
 
-    const elSelectValue = elSelect.value;
-    const elSortSelectValue = elSortSelect.value;
-    const elRegExpInputValue = elRegExpInput.value.trim();
-
-    const regExp = new RegExp(elRegExpInputValue, 'gi');
-
-    let filteredFilms = [];
-    if (elSelectValue === 'All') {
-        filteredFilms = films.filter(movie => movie.title.match(regExp));
+        if (!bookmarkFoundFilms.includes(foundFilm)) {
+            bookmarkFoundFilms.unshift(foundFilm);
+        }   
+        bookmarkFilms(bookmarkFoundFilms, elBookmarkList);
     }
-    else {
-        filteredFilms = films.filter(film => film.genres.includes(elSelectValue)).filter(movie => movie.title.match(regExp));
+    else if (evt.target.matches('.more__btn')) {
+        elModal.classList.add('modal--open');
+        const moreId = evt.target.dataset.moreId;
+        const foundFilm = films.find(film => film.id === moreId);
+
+        renderModalFilm(foundFilm);
     }
-
-    filteredFilms.sort(sortFilms[elSortSelectValue]);
-    elRegExpInput.value = null;
-
-    renderFilms(filteredFilms, elFilmsList);
 })
 
+// Render initial films
+renderFilms(films, elFilmsList);
 
 // Render modal function 
 function renderModalFilm(film) {
@@ -271,7 +280,7 @@ function renderModalFilm(film) {
 
     elModalFilmTitle.textContent = film.title;
     elModalFilmImg.setAttribute('src', film.poster);
-    elModalFilmDescription.textContent = film.overview.split(' ').slice(0, 20).join(' ') + ' ....';
+    elModalFilmDescription.textContent = film.overview;
     elModalFilmGenresTitle.textContent = 'Film Genres Types:';
     elModalFilmTime.textContent = normalizeDate(film.release_date);
 }
