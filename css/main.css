@@ -409,7 +409,8 @@ ul {
 
 .more__btn,
 .bookmark__btn {
-  padding: 3px 18px;
+  width: 48%;
+  padding: 5px 18px;
   font-weight: 500;
   font-size: 12px;
   background-color: #000;
