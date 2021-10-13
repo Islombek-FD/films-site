@@ -255,7 +255,7 @@ ul {
 
 .bookmark__open-btn,
 .search__btn {
-  width: 150px;
+  width: 120px;
   font-weight: 600;
   letter-spacing: 1px;
   background-color: red;
@@ -274,7 +274,11 @@ ul {
 
 .bookmark__open-btn:active,
 .search__btn:active {
-  opacity: .7;
+  opacity: .5;
+}
+
+.search__btn {
+  background-color: #239ca0;
 }
 
 .form__open-menu {
@@ -380,9 +384,6 @@ ul {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-column-gap: 20px;
           column-gap: 20px;
   row-gap: 30px;

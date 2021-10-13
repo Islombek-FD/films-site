@@ -121,7 +121,7 @@
 
 .bookmark__open-btn,
 .search__btn {
-    width: 150px;
+    width: 120px;
     font-weight: 600;
     letter-spacing: 1px;
     background-color: red;
@@ -135,8 +135,12 @@
     }
 
     &:active {
-        opacity: .7;
+        opacity: .5;
     }
+}
+
+.search__btn {
+    background-color: rgb(35, 156, 160);
 }
 
 .form__open-menu {
