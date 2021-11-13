@@ -243,12 +243,6 @@ elFilmsList.addEventListener('click', (evt) => {
         const bookmarkId = evt.target.dataset.bookmarkId;
         const foundFilm = films.find(film => film.id === bookmarkId);
 
-        if (bookmarkId) {
-            evt.target.textContent = 'Bookmarked';
-        }else {
-            evt.target.textContent = 'Bookmark';
-        }
-
         if (!bookmarkFoundFilms.includes(foundFilm)) {
             bookmarkFoundFilms.unshift(foundFilm);
         }   
