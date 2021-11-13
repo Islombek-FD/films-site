@@ -244,8 +244,9 @@ elFilmsList.addEventListener('click', (evt) => {
         const foundFilm = films.find(film => film.id === bookmarkId);
 
         if (bookmarkId) {
-            evt.target.disabled = true;
             evt.target.textContent = 'Bookmarked';
+        }else {
+            evt.target.textContent = 'Bookmark';
         }
 
         if (!bookmarkFoundFilms.includes(foundFilm)) {
